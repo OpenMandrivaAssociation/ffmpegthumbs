@@ -10,7 +10,7 @@ License:	GPLv2+
 Url:		https://projects.kde.org/projects/kde/kdemultimedia/ffmpegthumbs
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	cmake(ECM)
-BuildRequires:	pkgconfig(KF5KIO)
+BuildRequires:	cmake(KF5KIO)
 BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(libavcodec)
 BuildRequires:	pkgconfig(libavformat)
