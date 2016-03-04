@@ -9,6 +9,7 @@ Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		https://projects.kde.org/projects/kde/kdemultimedia/ffmpegthumbs
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		ffmpeg_2.9.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	pkgconfig(Qt5Gui)
@@ -33,6 +34,7 @@ This thumbnailer was designed to be as fast and lightweight as possible.
 
 %prep
 %setup -q
+%apply_patches
 %cmake_kde5
 
 %build
