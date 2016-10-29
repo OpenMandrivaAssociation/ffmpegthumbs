@@ -3,7 +3,7 @@
 Summary:	Video thumbnail generator for KDE4 file managers
 Name:		ffmpegthumbs
 Epoch:		3
-Version:	16.04.3
+Version:	16.08.2
 Release:	1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
