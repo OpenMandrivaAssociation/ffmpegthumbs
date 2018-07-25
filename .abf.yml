@@ -1,5 +1,6 @@
 removed_sources:
   ffmpegthumbs-15.08.0.tar.xz: 0a61ca81d81d8f8a389ffe5e8eebacddac60dce4
   ffmpegthumbs-17.12.1.tar.xz: 7c236d63fcd3c019a37b8ff3a3497003684d1acf
-sources:
   ffmpegthumbs-17.12.2.tar.xz: 6b21b89de4463636c58fe48eed1d161397349de4
+sources:
+  ffmpegthumbs-17.12.3.tar.xz: cc711d6e3bc954ec1b63030bd161cee8af29ab1e
