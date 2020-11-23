@@ -15,6 +15,7 @@ BuildRequires:	pkgconfig(Qt5Gui)
 BuildRequires:	pkgconfig(libavcodec)
 BuildRequires:	pkgconfig(libavformat)
 BuildRequires:	pkgconfig(libswscale)
+BuildRequires:	pkgconfig(taglib)
 
 %description
 FFmpegThumbs is a video thumbnails implementation for KDE4 based on
