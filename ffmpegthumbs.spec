@@ -2,13 +2,13 @@
 
 Summary:	Video thumbnail generator for KDE4 file managers
 Name:		ffmpegthumbs
-Epoch:		3
 Version:	21.12.1
-Release:	1
+Release:	2
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		https://projects.kde.org/projects/kde/kdemultimedia/ffmpegthumbs
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+Patch0:		ffmpegthumbs-21.12.1-ffmpeg-5.0.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF5KIO)
 BuildRequires:	pkgconfig(Qt5Gui)
@@ -37,8 +37,7 @@ This thumbnailer was designed to be as fast and lightweight as possible.
 #------------------------------------------------------------------------------
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 %cmake_kde5
 
 %build
