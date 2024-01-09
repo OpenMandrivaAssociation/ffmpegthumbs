@@ -28,17 +28,18 @@ This thumbnailer was designed to be as fast and lightweight as possible.
 
 %files 
 #-f %{name}.lang
-%{_qt6_plugindir}/kf6/thumbcreator/ffmpegthumbs.so
-%{_datadir}/config.kcfg/ffmpegthumbnailersettings6.kcfg
+%{_qtdir}/plugins/kf6/thumbcreator/ffmpegthumbs.so
 %{_datadir}/metainfo/org.kde.ffmpegthumbs.metainfo.xml
 %{_datadir}/qlogging-categories6/ffmpegthumbs.categories
+%{_datadir}/config.kcfg/ffmpegthumbnailersettings5.kcfg
 
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1
+%autosetup -p1 -n ffmpegthumbs-%{version}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
+	-DQT_MAJOR_VERSION=6 \
 	-G Ninja
 
 %build
