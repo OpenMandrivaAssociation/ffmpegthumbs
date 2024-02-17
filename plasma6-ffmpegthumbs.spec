@@ -1,13 +1,20 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Summary:	Video thumbnail generator for KDE4 file managers
 Name:		plasma6-ffmpegthumbs
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		https://projects.kde.org/projects/kde/kdemultimedia/ffmpegthumbs
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/multimedia/ffmpegthumbs/-/archive/%{gitbranch}/ffmpegthumbs-%{gitbranchd}.tar.bz2#/ffmpegthumbs-%{git}.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/ffmpegthumbs-%{version}.tar.xz
+%endif
 #Patch0:		ffmpegthumbs-21.12.1-ffmpeg-6.0.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(KF6KIO)
@@ -36,7 +43,7 @@ This thumbnailer was designed to be as fast and lightweight as possible.
 #------------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n ffmpegthumbs-%{version}
+%autosetup -p1 -n ffmpegthumbs-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-DQT_MAJOR_VERSION=6 \
