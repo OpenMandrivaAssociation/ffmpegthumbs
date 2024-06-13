@@ -5,7 +5,7 @@
 
 Summary:	Video thumbnail generator for KDE4 file managers
 Name:		plasma6-ffmpegthumbs
-Version:	24.05.0
+Version:	24.05.1
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
