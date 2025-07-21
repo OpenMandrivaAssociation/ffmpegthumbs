@@ -5,7 +5,7 @@
 
 Summary:	Video thumbnail generator for KDE4 file managers
 Name:		ffmpegthumbs
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -24,8 +24,12 @@ BuildRequires:	pkgconfig(libavformat)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(taglib)
 
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption:	-DQT_MAJOR_VERSION=6
+
 %description
-FFmpegThumbs is a video thumbnails implementation for KDE4 based on
+FFmpegThumbs is a video thumbnails implementation for KDE based on
 FFmpegThumbnailer.
 
 This thumbnailer uses FFmpeg to decode frames from the video files,
@@ -39,19 +43,3 @@ This thumbnailer was designed to be as fast and lightweight as possible.
 %{_datadir}/metainfo/org.kde.ffmpegthumbs.metainfo.xml
 %{_datadir}/qlogging-categories6/ffmpegthumbs.categories
 %{_datadir}/config.kcfg/ffmpegthumbnailersettings5.kcfg
-
-#------------------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n ffmpegthumbs-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-DQT_MAJOR_VERSION=6 \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-#find_lang %{name}
