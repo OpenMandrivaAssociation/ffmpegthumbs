@@ -28,6 +28,8 @@ BuildSystem:	cmake
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildOption:	-DQT_MAJOR_VERSION=6
 
+%rename plasma6-ffmpegthumbs
+
 %description
 FFmpegThumbs is a video thumbnails implementation for KDE based on
 FFmpegThumbnailer.
